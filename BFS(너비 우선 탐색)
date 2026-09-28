@@ -1,0 +1,20 @@
+from collections import deque #큐 구현 위해서 임포트
+
+def vfs(graph,start,visited):
+    queue=deque([start])
+    visited[start]=True#현재 노드를 방문처리
+    while(queue): #큐가 빌때까지 반복
+        v=queue.popleft() #큐에서 원소 하나 뽑고
+        print(v,end='')
+        for i in graph[v]: #해당 원서와 연결됐고 방문 안한애들 큐에 삽입
+            if not visited[i]:
+                queue.append(i)
+                visited[i]=True
+graph =[
+    [],
+    [2,3,8]
+]
+
+visited= [False]*9
+
+bfs(graph,1,visited)
